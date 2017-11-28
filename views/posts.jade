@@ -44,6 +44,8 @@ html(lang="jp")
           if isDeletable
             form(method="post", action="/posts?delete=1")
               input(type="hidden", name="id", value="#{post.id}")
+              input(type="hidden", name="oneTimeToken", value="#{oneTimeToken}")
+              //  トークンを削除ボタンに埋め込むことで「この掲示板の削除ボタンを使って削除しているか」が判定できる
               button(type="submit", class="btn btn-danger pull-right") 削除
               div(class="row")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
