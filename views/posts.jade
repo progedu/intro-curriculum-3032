@@ -1,5 +1,5 @@
 doctype html
-html(lang="jp")
+html(lang="ja")
   head
     meta(charset="UTF-8")
     link(rel="stylesheet",
@@ -44,8 +44,9 @@ html(lang="jp")
           if isDeletable
             form(method="post", action="/posts?delete=1")
               input(type="hidden", name="id", value="#{post.id}")
+              input(type="hidden", name="oneTimeToken", value="#{oneTimeToken}")
               button(type="submit", class="btn btn-danger pull-right") 削除
-              div(class="row")
+            div(class="row")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS",
