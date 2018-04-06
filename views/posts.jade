@@ -45,6 +45,7 @@ html(lang="jp")
             form(method="post", action="/posts?delete=1")
               input(type="hidden", name="id", value="#{post.id}")
               button(type="submit", class="btn btn-danger pull-right") 削除
+              input(type="hidden", name="oneTimeToken", value="#{oneTimeToken}")
               div(class="row")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
