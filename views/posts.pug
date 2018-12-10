@@ -21,6 +21,8 @@ html(lang="jp")
     h2 投稿一覧
     each post in posts
       div.card.my-3
+        div.card-link
+          a(href=post.hrefAnchor) #{post.hrefNumberId}
         div.card-header
             - var isPostedByAdmin = (post.postedBy === 'admin')
             if isPostedByAdmin
@@ -28,7 +30,7 @@ html(lang="jp")
             else
               - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
               span #{post.id} : ID:#{originalTrackingId}  
-        div.card-body
+        div.card-body(id=post.id)
           p(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer
             div 投稿日時: #{post.formattedCreatedAt}
@@ -39,6 +41,7 @@ html(lang="jp")
             if isDeletable
               form(method="post" action="/posts?delete=1")
                 input(type="hidden" name="id" value=post.id)
+                input(type="hidden" name="oneTimeToken" value=oneTimeToken)
                 button(type="submit").btn.btn-danger.float-right 削除
     script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
