@@ -21,7 +21,7 @@ html(lang="jp")
     h2 投稿一覧
     each post in posts
       div.card.my-3
-        .card-link
+        div.card-link
           a(href=post.hrefAnchor) #{post.hrefNumberId}
         div.card-header
             - var isPostedByAdmin = (post.postedBy === 'admin')
