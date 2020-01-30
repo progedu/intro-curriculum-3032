@@ -37,7 +37,6 @@ html(lang="jp")
               div 投稿者: #{post.postedBy}
             - var isDeletable = (user === post.postedBy || isAdmin)
             if isDeletable
-              input(type="hidden" name="oneTimeToken" value="oneTimeToken")
               form(method="post" action="/posts?delete=1")
                 input(type="hidden" name="id" value=post.id)
                 input(type="hidden" name="oneTimeToken" value=oneTimeToken)
