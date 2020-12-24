@@ -12,6 +12,7 @@ html(lang="jp")
       a(href="/logout").btn.btn-info.float-right ログアウト
       h1 秘密の匿名掲示板
     h2 新規投稿
+    p #{user}ログイン中です
     form(method="post" action="/posts")
       div.form-group
         textarea(name="content" rows="4").form-control
@@ -39,6 +40,7 @@ html(lang="jp")
             if isDeletable
               form(method="post" action="/posts?delete=1")
                 input(type="hidden" name="id" value=post.id)
+                input(type="hidden" name="oneTimeToken" value=oneTimeToken)
                 button(type="submit").btn.btn-danger.float-right 削除
     script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
